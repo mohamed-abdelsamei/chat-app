@@ -1,5 +1,6 @@
 class RoomController {
     static async create(req, res, next) {
+        
         return res.json({ msg: "ok" })
     }
 

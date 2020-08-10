@@ -1,8 +1,11 @@
-const app = require('./src/app')
+const server = require('./src/app')
 const mongoose = require('./src/utils/mongoose')
+
 async function run() {
     await mongoose.connect()
-    await app.start()
+    server.listen(3000, () => {
+        console.log('web server started');
+    })
 }
 
 run()

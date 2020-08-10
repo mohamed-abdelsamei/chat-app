@@ -11,7 +11,7 @@ const userSchema = new Schema({
     status: { type: String, enum: ['new', 'active'] },
     password: { type: String },
 
-});
+}, { timestamps: true });
 
 userSchema.pre('save', function (next) {
     if (!this.isModified('password')) {

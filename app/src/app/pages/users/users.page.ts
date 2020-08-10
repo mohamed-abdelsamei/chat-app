@@ -3,22 +3,22 @@ import { ChatService } from 'src/app/services/chat.service';
 import { Socket } from 'ngx-socket-io';
 
 @Component({
-  selector: 'app-rooms',
-  templateUrl: './rooms.page.html',
-  styleUrls: ['./rooms.page.scss'],
+  selector: 'app-users',
+  templateUrl: './users.page.html',
+  styleUrls: ['./users.page.scss'],
 })
-export class RoomsPage implements OnInit {
-  rooms: any = []
+export class UsersPage implements OnInit {
+  users: any = []
   constructor(private chatService: ChatService, private socket: Socket) {
     this.socket.connect()
 
   }
 
   ngOnInit() {
-    this.socket.emit("getRooms", { msh: "ff" })
-    this.socket.fromEvent('rooms').subscribe(s => {
+    this.socket.emit("getUsers", { msh: "ff" })
+    this.socket.fromEvent('users').subscribe(s => {
       console.log(s);
-      this.rooms = s
+      this.users = s
     })
   }
   unread(user) {

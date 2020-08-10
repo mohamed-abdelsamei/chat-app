@@ -1,26 +1,24 @@
 const express = require('express')
 const cors = require('cors')
-const mongoose = require('mongoose')
 const path = require('path');
+const WebSocket = require('./core/socket');
 
-const bodyParser = require('body-parser')
 const routes = require('./api/routes')
 const app = express()
-async function start() {
+let server = require('http').createServer(app);
 
-    app.use(cors());
-    // middlewares
-    app.use(express.json());
-    app.use(express.urlencoded({ extended: false }));
-    app.use(express.static(path.join(__dirname, 'public')));
+const ws = new WebSocket(server)
 
-    routes(app)
+app.use(cors());
+// middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-    app.listen(3000, () => {
-        console.log('web server started');
-    })
-    return app
-}
+routes(app)
 
 
-module.exports = { start }
+
+
+
+module.exports = server

@@ -1,7 +1,8 @@
 const UserController = require("../contollers/user.controller")
+const UserService = require("../services/user.service")
 
 module.exports = (router) => {
-    router.get('/', (req, res, next) => { return res.json({ msg: "ok" }) })
+    router.get('/', UserController.getAll)
     router.post('/login', UserController.login)
     router.post('/register', UserController.register)
     router.get('/me', (req, res, next) => { res.json({ msg: "ok" }) })
