@@ -1,7 +1,9 @@
+const { Events } = require('../../utils/constants')
+
 module.exports = (io) => {
     const createSubscription = () => { }
     const getSubscriptions = () => { }
 
-    io.on('createSubscription', createSubscription)
-    io.on('getSubscriptions', getSubscriptions)
+    io.on(Events.createSubscription, createSubscription)
+    io.on(Events.getSubscriptions, getSubscriptions)
 }

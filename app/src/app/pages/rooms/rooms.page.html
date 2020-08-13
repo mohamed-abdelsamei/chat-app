@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>rooms</ion-title>
+    <ion-title class="ion-text-center">rooms</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
     <ion-item sliding *ngFor="let room of rooms;">
-      <ion-label>{{room.name}}</ion-label>
+      <ion-label>{{room._id}}</ion-label>
     </ion-item>
   </ion-list>
 </ion-content>

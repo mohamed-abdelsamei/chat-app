@@ -12,7 +12,7 @@ class UserController {
             let valid = user.validPassword(password)
             if (!valid) throw new Error("wrong password")
             let token = UserService.generateJWTToken(user)
-            res.json({ token })
+            res.json({ token, user: UserService.toMini(user) })
         } catch (error) {
             next(error)
         }

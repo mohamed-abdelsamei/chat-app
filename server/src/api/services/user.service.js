@@ -18,8 +18,8 @@ module.exports = class UserService {
 
     }
 
-    static async findMany() {
-        return UserModel.find()
+    static async findMany(q) {
+        return UserModel.find(q)
     }
 
     static toMini({ _id, name, username }) {

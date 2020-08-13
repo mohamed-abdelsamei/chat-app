@@ -7,6 +7,7 @@ const { Schema } = mongoose;
 const roomSchema = new Schema({
     name: { type: String },
     description: { type: String },
+    members: [{ type: Schema.Types.ObjectId }]
 }, { timestamps: true });
 
 
