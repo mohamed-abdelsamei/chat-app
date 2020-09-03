@@ -18,7 +18,11 @@ const routes: Routes = [
   },
   {
     path: 'users',
-    loadChildren: () => import('./pages/users/users.module').then( m => m.UsersPageModule)
+    loadChildren: () => import('./pages/users/users.module').then(m => m.UsersPageModule)
+  },
+  {
+    path: 'room/:id',
+    loadChildren: () => import('./pages/chat-room/chat-room.module').then(m => m.ChatRoomPageModule)
   }
 
 ];

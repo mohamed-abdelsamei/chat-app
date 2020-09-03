@@ -11,7 +11,12 @@ module.exports.Events = {
     // user events
     userChanged: "user_changed",
     getUsers: "users_get",
-    createUser: 'create_user'
+    createUser: 'create_user',
+
+    // message events
+    createMessage: "create_message",
+    getMessages: "messages_get",
+    messageChanged: 'message_changed'
 
 
 }

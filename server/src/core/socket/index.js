@@ -1,5 +1,5 @@
 const userSocket = require('./user.socket')
-const chatSocket = require('./chat.socket')
+const messageSocket = require('./message.socket')
 const roomSocket = require('./room.socket')
 const subscriptionSocket = require('./subscription.socket')
 const UserService = require('../../api/services/user.service')
@@ -34,7 +34,7 @@ class Socket {
                 console.log("New client connected");
                 userSocket(socket)
                 roomSocket(socket)
-                chatSocket(socket)
+                messageSocket(socket)
                 subscriptionSocket(socket)
 
                 socket.on('disconnecting', () => {

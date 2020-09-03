@@ -4,11 +4,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 // create a schema
-const subscriptionSchema = new Schema({
+const messageSchema = new Schema({
+    msg: { type: String },
     rId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Room' },
-    description: { type: String },
-    name: { type: String, default: 'Room' },
-    role: { type: String, enum: ["member", "admin"] },
     u: {
         id: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
         name: { type: "String" }
@@ -16,5 +14,4 @@ const subscriptionSchema = new Schema({
 }, { timestamps: true });
 
 
-
-module.exports = mongoose.model('Subscription', subscriptionSchema);
+module.exports = mongoose.model('Message', messageSchema);
